@@ -76,11 +76,11 @@ python3 scripts/format-report.py  # Convert to readable markdown
 ### 3. Set Up Automated Runs (Recommended)
 
 ```bash
-# Runs every hour (24 times per day)
+# Runs every 5 minutes (288 times per day)
 bash scripts/setup-cron.sh
 ```
 
-Then just check `/reports/bets-now.md` every hour for fresh opportunities.
+Then just check `/reports/bets-now.md` for fresh opportunities (updates every 5 minutes).
 
 ---
 

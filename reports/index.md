@@ -8,10 +8,10 @@
 
 ### 👉 [BET NOW →](bets-now.md)
 **What to do RIGHT NOW to make money today**
-- {len} profitable bets ready to execute
-- Guaranteed profit: ${profit}
-- Time to execute: 5 minutes
-- Updated hourly
+- Fresh bets available now
+- Guaranteed profit shown for each
+- Time to execute: 2-3 minutes per bet
+- **Updated every 5 minutes** (288 times per day)
 
 ### 📈 [This Week's Opportunities](bets-this-week.md)
 **Bigger picture view of all opportunities**

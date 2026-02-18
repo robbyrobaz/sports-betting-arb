@@ -2,8 +2,8 @@ name: Hourly Sportsbook Scan
 
 on:
   schedule:
-    # Run every hour (24 times per day)
-    - cron: '0 * * * *'  # Every hour
+    # Run every 5 minutes (288 times per day)
+    - cron: '*/5 * * * *'  # Every 5 minutes
   workflow_dispatch:  # Manual trigger
 
 jobs:

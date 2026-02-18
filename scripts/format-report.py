@@ -29,10 +29,14 @@ def create_bets_now(opportunities):
     # Sort by profit (highest first)
     profitable.sort(key=lambda x: x['calculation']['guaranteed_profit'], reverse=True)
     
+    # Calculate next update (5 minutes from now)
+    from datetime import timedelta
+    next_update = datetime.now() + timedelta(minutes=5)
+    
     md = f"""# 🎰 BETS TO PLACE NOW
 
 **Last Updated:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S MST')}  
-**Next Update:** {(datetime.now().hour + 1) % 24}:00 MST
+**Next Update:** {next_update.strftime('%H:%M:%S MST')} (5 minutes)
 
 ---
 
@@ -112,7 +116,7 @@ Check back in 1 hour for fresh odds.
 """
     
     md += f"""**Last scan:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}  
-**Next scan:** {(datetime.now().hour + 1) % 24}:00 MST  
+**Next scan:** {next_update.strftime('%H:%M:%S')} (5 min from now)  
 **Sportsbooks scanned:** 15+ (ESPN, DraftKings, FanDuel, BetMGM, Caesars, PointsBet, Barstool, WynnBET, Golden Nugget, more)
 """
     
