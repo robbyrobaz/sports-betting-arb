@@ -228,44 +228,107 @@ bash scripts/setup-cron.sh
 """
 
 def create_this_week():
-    """Create bets-this-week.md"""
+    """Create bets-this-week.md from historical scan data"""
     
-    return """# 📈 THIS WEEK'S OPPORTUNITIES
+    from datetime import datetime, timedelta
+    
+    raw_dir = Path(__file__).parent.parent / "raw"
+    
+    # Load all scan results from past 7 days
+    week_ago = datetime.now() - timedelta(days=7)
+    all_opps = []
+    daily_stats = {}
+    
+    if raw_dir.exists():
+        for json_file in sorted(raw_dir.glob("arb_opportunities_*.json")):
+            # Parse date from filename: arb_opportunities_20260218_075247.json
+            try:
+                file_date_str = json_file.stem.split('_')[2]  # YYYYMMDD
+                file_date = datetime.strptime(file_date_str, '%Y%m%d')
+                
+                if file_date >= week_ago:
+                    with open(json_file) as f:
+                        data = json.load(f)
+                    
+                    for opp in data:
+                        all_opps.append(opp)
+                        
+                        # Track daily stats
+                        date_key = file_date.strftime('%Y-%m-%d')
+                        if date_key not in daily_stats:
+                            daily_stats[date_key] = {'total': 0, 'profitable': 0, 'profit': 0, 'risk': 0}
+                        
+                        daily_stats[date_key]['total'] += 1
+                        calc = opp.get('calculation', {})
+                        if calc.get('guaranteed_profit', 0) > 0:
+                            daily_stats[date_key]['profitable'] += 1
+                            daily_stats[date_key]['profit'] += calc['guaranteed_profit']
+                        daily_stats[date_key]['risk'] += calc.get('total_real_money_risk', 0)
+            except:
+                continue
+    
+    # Calculate aggregates
+    profitable_opps = [o for o in all_opps if o.get('calculation', {}).get('guaranteed_profit', 0) > 0]
+    total_profit = sum(o['calculation']['guaranteed_profit'] for o in profitable_opps)
+    total_risk = sum(o['calculation']['total_real_money_risk'] for o in all_opps)
+    
+    # Build daily breakdown table
+    daily_table = ""
+    for date in sorted(daily_stats.keys(), reverse=True):
+        stats = daily_stats[date]
+        daily_table += f"| {date} | {stats['total']} | {stats['profitable']} | ${stats['profit']:.2f} | ${stats['risk']:.2f} |\n"
+    
+    # Top opportunities by profit
+    top_opps = sorted(profitable_opps, key=lambda x: x['calculation']['guaranteed_profit'], reverse=True)[:5]
+    top_section = ""
+    for i, opp in enumerate(top_opps, 1):
+        calc = opp['calculation']
+        top_section += f"### {i}. {opp['description']}\n- **Profit:** ${calc['guaranteed_profit']:.2f}\n- **ROI:** {calc['roi_pct']:.1f}%\n\n"
+    
+    # Sportsbook pair breakdown
+    pair_stats = {}
+    for opp in profitable_opps:
+        pair = f"{opp['calculation']['bonus_book']} → {opp['calculation']['hedge_book']}"
+        if pair not in pair_stats:
+            pair_stats[pair] = {'count': 0, 'profit': 0}
+        pair_stats[pair]['count'] += 1
+        pair_stats[pair]['profit'] += opp['calculation']['guaranteed_profit']
+    
+    pair_table = ""
+    for pair in sorted(pair_stats.keys(), key=lambda x: pair_stats[x]['profit'], reverse=True):
+        stats = pair_stats[pair]
+        pair_table += f"| {pair} | {stats['count']} | ${stats['profit']:.2f} |\n"
+    
+    success_rate = (len(profitable_opps) / len(all_opps) * 100) if all_opps else 0
+    
+    return f"""# 📈 THIS WEEK'S OPPORTUNITIES
 
-**Overview of all opportunities detected this week**
+**7-day rolling summary (auto-updated every 5 minutes)**
 
 ---
 
 ## 💰 PROFIT SUMMARY
 
-| Day | Bets | Profitable | Total Profit | Total Risk |
-|-----|------|-----------|--------------|-----------|
-| Today | 3 | 3 | $237 | $1,250 |
-| Yesterday | 5 | 4 | $312 | $2,100 |
-| 2 days ago | 4 | 2 | $95 | $800 |
+| Date | Total | Profitable | Profit | Risk |
+|------|-------|-----------|--------|------|
+{daily_table}
 
-**Week Total:** $644 profit if all executed
+**Week Total:** {len(profitable_opps)} profitable = **${total_profit:.2f}** guaranteed profit
 
 ---
 
 ## 🎯 TOP OPPORTUNITIES
 
-### This Week's Biggest Profit
-**DraftKings $1000 bonus → FanDuel**
-- Profit: $150
-- Status: AVAILABLE NOW
-- ROI: 16.3%
-
-[Execute this bet →](bets-now.md)
+{top_section}[View daily opportunities →](bets-now.md)
 
 ---
 
 ## 📊 STATISTICS
 
-- **Total opportunities found:** 12
-- **Profitable (profitable):** 9
-- **Marginal (skip):** 3
-- **Success rate:** 75%
+- **Total opportunities:** {len(all_opps)}
+- **Profitable:** {len(profitable_opps)}
+- **Success rate:** {success_rate:.1f}%
+- **Available profit:** ${total_profit:.2f}
 
 ---
 
@@ -273,15 +336,13 @@ def create_this_week():
 
 | Books | Count | Total Profit |
 |-------|-------|--------------|
-| DraftKings → FanDuel | 5 | $412 |
-| BetMGM → Caesars | 3 | $180 |
-| Barstool → PointsBet | 2 | $95 |
-| Caesars → WynnBET | 2 | -$43 (skip) |
+{pair_table}
 
 ---
 
-**Last updated:** Hourly  
-[Back to today's bets →](bets-now.md)
+**Auto-aggregated:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}  
+**Updates:** Every 5 minutes from hourly scans  
+[Back to today →](bets-now.md)
 """
 
 def main():
