@@ -41,7 +41,19 @@ Result:
 
 ---
 
-## Quick Start
+## 👉 START HERE
+
+**Want to see betting opportunities RIGHT NOW?**
+
+👉 **Go to `/reports/` folder** 👈
+
+- **`index.md`** — Start here (navigation)
+- **`bets-now.md`** — What to bet on TODAY (updated hourly)
+- **`bets-this-week.md`** — Weekly summary
+
+---
+
+## Setup
 
 ### 1. Install Dependencies
 
@@ -57,50 +69,46 @@ pip install requests
 ```bash
 python3 scripts/scraper.py        # Fetch odds from 15+ books
 python3 scripts/detector.py       # Find arbitrage opportunities
-python3 scripts/report.py         # Generate summary report
+python3 scripts/report.py         # Generate JSON reports
+python3 scripts/format-report.py  # Convert to readable markdown
 ```
 
-### 3. Set Up Automated Runs (Optional)
+### 3. Set Up Automated Runs (Recommended)
 
 ```bash
-# Runs 3x daily (08:00, 14:00, 20:00 MST)
+# Runs every hour (24 times per day)
 bash scripts/setup-cron.sh
 ```
 
+Then just check `/reports/bets-now.md` every hour for fresh opportunities.
+
 ---
 
-## Output
+## Output (Human-Readable)
 
-Each scan generates a report in `/reports/`:
+Each hour, fresh reports are generated in `/reports/`:
 
-```json
-{
-  "timestamp": "2026-02-18T07:39:42",
-  "summary": {
-    "total_opportunities": 3,
-    "profitable": 2,
-    "total_guaranteed_profit": 247.50,
-    "average_roi": 12.3
-  },
-  "opportunities": [
-    {
-      "description": "DraftKings $1000 Bonus → FanDuel Hedge",
-      "calculation": {
-        "bonus_book": "DraftKings",
-        "bonus_team": "Los Angeles Lakers",
-        "bonus_odds": -120,
-        "bonus_stake": 1000,
-        "hedge_book": "FanDuel",
-        "hedge_team": "Boston Celtics",
-        "hedge_odds": 110,
-        "hedge_stake": 757.58,
-        "guaranteed_profit": 123.75,
-        "roi_pct": 16.3
-      }
-    }
-  ]
-}
+### `bets-now.md` (What you actually read)
+```markdown
+# 🎰 BETS TO PLACE NOW
+
+## ✅ IMMEDIATE ACTION (2 bets)
+
+### #1 DraftKings → FanDuel
+**Guaranteed Profit:** $150  
+**Your Risk:** $500 real money  
+**Steps:**
+1. Go to DraftKings, find odds on Lakers vs Celtics
+2. Bet $500 on Lakers @ -120 
+3. Go to FanDuel
+4. Bet $300 on Celtics @ +110
+5. Done ✅
+
+**Why this works:** +$150 either way (Lakers win or Celtics win)
 ```
+
+### Raw Data (JSON, in `/raw/`)
+Machine-readable data for tracking/tools. You don't need to read this.
 
 ---
 
@@ -248,18 +256,33 @@ Outcome 2 (Celtics win):
 
 ---
 
-## Limitations
+## ⚠️ Important: What This CAN and CANNOT Do
 
-1. **No account integration** — System finds arbs, you execute manually
-   - By design (gives you control, safer)
-   
-2. **API-based** — Uses published odds, not real sportsbook app screenshots
-   - Fast + reliable, covers all major lines
-   - Unique promos in-app not captured (future feature)
+### ✅ What This FINDS
+- **Public line arbitrage** — Lakers -120 DraftKings vs +130 Bovada ($2-20 guaranteed)
+- **Cross-book spread discrepancies** — Differences between sportsbooks
 
-3. **Free tier APIs** — Some APIs require keys for full access
-   - System works on free tier
-   - Upgrade for higher request limits
+### ❌ What This CANNOT SEE
+- **Your personal welcome bonuses** — "$500 bonus just for you" (account-specific)
+- **VIP-tier offers** — Targeted promotions based on your history
+- **Account-exclusive promos** — Only visible when logged in as you
+- **Time-limited personal offers** — Varies per user
+
+### 💡 The Real Money
+**Bonus bet hedging** is where the real profits are:
+- Claim $1000 personal bonus at DraftKings (hidden from API)
+- Bet $1000 on Lakers (free credit)
+- Hedge $758 on Celtics at FanDuel (your money)
+- Lock in $100-500 guaranteed profit
+
+**This system finds the hedge. You find the bonus.**
+
+### 🔧 Future Enhancement (Phase 2)
+- Add manual bonus input: "I have $500 bonus at BetMGM"
+- System auto-calculates best hedge + profit
+- Combines personal bonuses + public arbs for maximum profit
+
+For now: Use this system for public line arbs, then manually add your available bonuses for the **real** edge.
 
 ---
 
