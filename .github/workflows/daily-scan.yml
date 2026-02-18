@@ -1,12 +1,9 @@
-name: Daily Sportsbook Scan
+name: Hourly Sportsbook Scan
 
 on:
   schedule:
-    # Run 3x daily: 8 AM, 2 PM, 8 PM MST
-    # (3 PM, 9 PM, 4 AM UTC)
-    - cron: '0 15 * * *'  # 8 AM MST
-    - cron: '0 21 * * *'  # 2 PM MST
-    - cron: '0 4 * * *'   # 9 PM MST
+    # Run every hour (24 times per day)
+    - cron: '0 * * * *'  # Every hour
   workflow_dispatch:  # Manual trigger
 
 jobs:
