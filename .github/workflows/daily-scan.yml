@@ -1,10 +1,15 @@
 name: Hourly Sportsbook Scan
 
 on:
-  schedule:
-    # Run every 5 minutes (288 times per day)
-    - cron: '*/5 * * * *'  # Every 5 minutes
-  workflow_dispatch:  # Manual trigger
+  workflow_dispatch:  # Manual trigger only
+  
+  # NOTE: Scheduled runs are DISABLED because:
+  # - GitHub Actions has unreliable 5-minute scheduling
+  # - Minimum interval is often 10-15 minutes
+  # - Local cron job is more reliable
+  # - See: /home/rob/.openclaw/workspace/scripts/sports-betting-scan.sh
+  
+  # To manually trigger: gh workflow run daily-scan.yml
 
 jobs:
   scan:

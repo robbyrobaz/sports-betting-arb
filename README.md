@@ -48,7 +48,7 @@ Result:
 👉 **Go to `/reports/` folder** 👈
 
 - **`index.md`** — Start here (navigation)
-- **`bets-now.md`** — What to bet on TODAY (updated hourly)
+- **`bets-now.md`** — What to bet on TODAY (updated **every 5 minutes**)
 - **`bets-this-week.md`** — Weekly summary
 
 ---
