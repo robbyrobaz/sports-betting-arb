@@ -1,0 +1,56 @@
+name: Daily Sportsbook Scan
+
+on:
+  schedule:
+    # Run 3x daily: 8 AM, 2 PM, 8 PM MST
+    # (3 PM, 9 PM, 4 AM UTC)
+    - cron: '0 15 * * *'  # 8 AM MST
+    - cron: '0 21 * * *'  # 2 PM MST
+    - cron: '0 4 * * *'   # 9 PM MST
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      
+      - name: Run scraper
+        run: |
+          python3 scripts/scraper.py
+      
+      - name: Run detector
+        run: |
+          python3 scripts/detector.py
+      
+      - name: Generate report
+        run: |
+          python3 scripts/report.py
+      
+      - name: Commit and push results
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add reports/
+          git commit -m "Auto: Daily scan results $(date +'%Y-%m-%d %H:%M:%S UTC')" --allow-empty
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Report status
+        if: always()
+        run: |
+          echo "✅ Scan completed at $(date)"
+          echo "Results available in /reports/"
