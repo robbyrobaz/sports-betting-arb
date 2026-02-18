@@ -110,7 +110,7 @@ def create_bets_now(opportunities):
 
 The detector found opportunities, but none meet the profit threshold (minimum ${10} guaranteed).
 
-Check back in 1 hour for fresh odds.
+Check back in 5 minutes for fresh odds!
 
 ---
 """
