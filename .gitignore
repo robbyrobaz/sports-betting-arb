@@ -39,3 +39,8 @@ logs/*.log
 # Analysis folder (local temp)
 analysis/
 scripts/arb_opportunities_*.json
+scripts/sportsbook_data_*.json
+
+# Raw JSON data (auto-generated, massive files)
+raw/*.json
+raw/*.json.gz

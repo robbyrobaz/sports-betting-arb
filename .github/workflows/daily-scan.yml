@@ -32,9 +32,18 @@ jobs:
         run: |
           python3 scripts/detector.py
       
-      - name: Generate report
+      - name: Generate JSON reports
         run: |
           python3 scripts/report.py
+      
+      - name: Format human-readable markdown
+        run: |
+          python3 scripts/format-report.py
+      
+      - name: Organize files
+        run: |
+          mkdir -p raw
+          mv reports/*.json raw/ 2>/dev/null || true
       
       - name: Commit and push results
         run: |
