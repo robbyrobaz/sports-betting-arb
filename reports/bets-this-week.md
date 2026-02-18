@@ -1,39 +1,32 @@
 # 📈 THIS WEEK'S OPPORTUNITIES
 
-**Overview of all opportunities detected this week**
+**7-day rolling summary (auto-updated every 5 minutes)**
 
 ---
 
 ## 💰 PROFIT SUMMARY
 
-| Day | Bets | Profitable | Total Profit | Total Risk |
-|-----|------|-----------|--------------|-----------|
-| Today | 3 | 3 | $237 | $1,250 |
-| Yesterday | 5 | 4 | $312 | $2,100 |
-| 2 days ago | 4 | 2 | $95 | $800 |
+| Date | Total | Profitable | Profit | Risk |
+|------|-------|-----------|--------|------|
+| 2026-02-18 | 2 | 0 | $0.00 | $1515.16 |
 
-**Week Total:** $644 profit if all executed
+
+**Week Total:** 0 profitable = **$0.00** guaranteed profit
 
 ---
 
 ## 🎯 TOP OPPORTUNITIES
 
-### This Week's Biggest Profit
-**DraftKings $1000 bonus → FanDuel**
-- Profit: $150
-- Status: AVAILABLE NOW
-- ROI: 16.3%
-
-[Execute this bet →](bets-now.md)
+[View daily opportunities →](bets-now.md)
 
 ---
 
 ## 📊 STATISTICS
 
-- **Total opportunities found:** 12
-- **Profitable (profitable):** 9
-- **Marginal (skip):** 3
-- **Success rate:** 75%
+- **Total opportunities:** 2
+- **Profitable:** 0
+- **Success rate:** 0.0%
+- **Available profit:** $0.00
 
 ---
 
@@ -41,12 +34,10 @@
 
 | Books | Count | Total Profit |
 |-------|-------|--------------|
-| DraftKings → FanDuel | 5 | $412 |
-| BetMGM → Caesars | 3 | $180 |
-| Barstool → PointsBet | 2 | $95 |
-| Caesars → WynnBET | 2 | -$43 (skip) |
+
 
 ---
 
-**Last updated:** Hourly  
-[Back to today's bets →](bets-now.md)
+**Auto-aggregated:** 2026-02-18 08:35:02  
+**Updates:** Every 5 minutes from hourly scans  
+[Back to today →](bets-now.md)
