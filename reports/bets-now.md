@@ -1,7 +1,7 @@
 # 🎰 BETS TO PLACE NOW
 
-**Last Updated:** 2026-02-18 15:15:02 MST  
-**Next Update:** 15:20:02 MST (5 minutes)
+**Last Updated:** 2026-02-18 15:20:02 MST  
+**Next Update:** 15:25:02 MST (5 minutes)
 
 ---
 
@@ -14,6 +14,6 @@ The detector found opportunities, but none meet the profit threshold (minimum ${
 Check back in 5 minutes for fresh odds!
 
 ---
-**Last scan:** 2026-02-18 15:15:02  
-**Next scan:** 15:20:02 (5 min from now)  
+**Last scan:** 2026-02-18 15:20:02  
+**Next scan:** 15:25:02 (5 min from now)  
 **Sportsbooks scanned:** 15+ (ESPN, DraftKings, FanDuel, BetMGM, Caesars, PointsBet, Barstool, WynnBET, Golden Nugget, more)
