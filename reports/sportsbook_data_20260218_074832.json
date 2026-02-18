@@ -1,0 +1,277 @@
+{
+  "captured_at": "2026-02-18T07:48:32.523286",
+  "data": {
+    "timestamp": "2026-02-18T07:48:31.625976",
+    "sources": {
+      "nba": {
+        "aggregated_odds_api": [
+          {
+            "source": "DraftKings",
+            "sport": "nba",
+            "status": "fallback_available"
+          },
+          {
+            "source": "FanDuel",
+            "sport": "nba",
+            "status": "fallback_available"
+          },
+          {
+            "source": "BetMGM",
+            "sport": "nba",
+            "status": "fallback_available"
+          },
+          {
+            "source": "Caesars",
+            "sport": "nba",
+            "status": "fallback_available"
+          },
+          {
+            "source": "PointsBet",
+            "sport": "nba",
+            "status": "fallback_available"
+          },
+          {
+            "source": "Barstool Sportsbook",
+            "sport": "nba",
+            "status": "fallback_available"
+          },
+          {
+            "source": "WynnBET",
+            "sport": "nba",
+            "status": "fallback_available"
+          },
+          {
+            "source": "Golden Nugget",
+            "sport": "nba",
+            "status": "fallback_available"
+          }
+        ],
+        "espn": [
+          {
+            "sport": "nba",
+            "date": "2026-02-20T00:00Z",
+            "status": {
+              "id": "1",
+              "name": "STATUS_SCHEDULED",
+              "state": "pre",
+              "completed": false,
+              "description": "Scheduled",
+              "detail": "Thu, February 19th at 7:00 PM EST",
+              "shortDetail": "2/19 - 7:00 PM EST"
+            },
+            "team_a": null,
+            "team_b": null,
+            "odds": {
+              "provider": "Draft Kings",
+              "team_a_line": 216.5,
+              "spread": 2.5
+            }
+          },
+          {
+            "sport": "nba",
+            "date": "2026-02-20T00:00Z",
+            "status": {
+              "id": "1",
+              "name": "STATUS_SCHEDULED",
+              "state": "pre",
+              "completed": false,
+              "description": "Scheduled",
+              "detail": "Thu, February 19th at 7:00 PM EST",
+              "shortDetail": "2/19 - 7:00 PM EST"
+            },
+            "team_a": null,
+            "team_b": null,
+            "odds": {
+              "provider": "Draft Kings",
+              "team_a_line": 229.5,
+              "spread": -14.5
+            }
+          },
+          {
+            "sport": "nba",
+            "date": "2026-02-20T00:00Z",
+            "status": {
+              "id": "1",
+              "name": "STATUS_SCHEDULED",
+              "state": "pre",
+              "completed": false,
+              "description": "Scheduled",
+              "detail": "Thu, February 19th at 7:00 PM EST",
+              "shortDetail": "2/19 - 7:00 PM EST"
+            },
+            "team_a": null,
+            "team_b": null,
+            "odds": {
+              "provider": "Draft Kings",
+              "team_a_line": 237.5,
+              "spread": -4.5
+            }
+          },
+          {
+            "sport": "nba",
+            "date": "2026-02-20T00:00Z",
+            "status": {
+              "id": "1",
+              "name": "STATUS_SCHEDULED",
+              "state": "pre",
+              "completed": false,
+              "description": "Scheduled",
+              "detail": "Thu, February 19th at 7:00 PM EST",
+              "shortDetail": "2/19 - 7:00 PM EST"
+            },
+            "team_a": null,
+            "team_b": null,
+            "odds": {
+              "provider": "Draft Kings",
+              "team_a_line": 233.5,
+              "spread": 4.5
+            }
+          },
+          {
+            "sport": "nba",
+            "date": "2026-02-20T00:30Z",
+            "status": {
+              "id": "1",
+              "name": "STATUS_SCHEDULED",
+              "state": "pre",
+              "completed": false,
+              "description": "Scheduled",
+              "detail": "Thu, February 19th at 7:30 PM EST",
+              "shortDetail": "2/19 - 7:30 PM EST"
+            },
+            "team_a": null,
+            "team_b": null,
+            "odds": {
+              "provider": "Draft Kings",
+              "team_a_line": 222.5,
+              "spread": -4.5
+            }
+          },
+          {
+            "sport": "nba",
+            "date": "2026-02-20T01:00Z",
+            "status": {
+              "id": "1",
+              "name": "STATUS_SCHEDULED",
+              "state": "pre",
+              "completed": false,
+              "description": "Scheduled",
+              "detail": "Thu, February 19th at 8:00 PM EST",
+              "shortDetail": "2/19 - 8:00 PM EST"
+            },
+            "team_a": null,
+            "team_b": null,
+            "odds": {
+              "provider": "Draft Kings",
+              "team_a_line": 233.5,
+              "spread": 6.5
+            }
+          },
+          {
+            "sport": "nba",
+            "date": "2026-02-20T01:30Z",
+            "status": {
+              "id": "1",
+              "name": "STATUS_SCHEDULED",
+              "state": "pre",
+              "completed": false,
+              "description": "Scheduled",
+              "detail": "Thu, February 19th at 8:30 PM EST",
+              "shortDetail": "2/19 - 8:30 PM EST"
+            },
+            "team_a": null,
+            "team_b": null,
+            "odds": {
+              "provider": "Draft Kings",
+              "team_a_line": 226.5,
+              "spread": -7.5
+            }
+          },
+          {
+            "sport": "nba",
+            "date": "2026-02-20T03:00Z",
+            "status": {
+              "id": "1",
+              "name": "STATUS_SCHEDULED",
+              "state": "pre",
+              "completed": false,
+              "description": "Scheduled",
+              "detail": "Thu, February 19th at 10:00 PM EST",
+              "shortDetail": "2/19 - 10:00 PM EST"
+            },
+            "team_a": null,
+            "team_b": null,
+            "odds": {
+              "provider": "Draft Kings",
+              "team_a_line": 217.5,
+              "spread": 2.5
+            }
+          },
+          {
+            "sport": "nba",
+            "date": "2026-02-20T03:00Z",
+            "status": {
+              "id": "1",
+              "name": "STATUS_SCHEDULED",
+              "state": "pre",
+              "completed": false,
+              "description": "Scheduled",
+              "detail": "Thu, February 19th at 10:00 PM EST",
+              "shortDetail": "2/19 - 10:00 PM EST"
+            },
+            "team_a": null,
+            "team_b": null,
+            "odds": {
+              "provider": "Draft Kings",
+              "team_a_line": 225.5,
+              "spread": 10.5
+            }
+          },
+          {
+            "sport": "nba",
+            "date": "2026-02-20T03:30Z",
+            "status": {
+              "id": "1",
+              "name": "STATUS_SCHEDULED",
+              "state": "pre",
+              "completed": false,
+              "description": "Scheduled",
+              "detail": "Thu, February 19th at 10:30 PM EST",
+              "shortDetail": "2/19 - 10:30 PM EST"
+            },
+            "team_a": null,
+            "team_b": null,
+            "odds": {
+              "provider": "Draft Kings",
+              "team_a_line": 226.5,
+              "spread": 4.5
+            }
+          }
+        ],
+        "bovada": [],
+        "betmgm": [],
+        "fanduel": [],
+        "caesars": [],
+        "pointsbet": [],
+        "barstool": [],
+        "goldennugget": [],
+        "wynnbet": [],
+        "draftkings_promos": [
+          {
+            "source": "DraftKings",
+            "status": "API endpoint requires browser authentication",
+            "note": "Use web_scraper.py for live promotions",
+            "manual_data": {
+              "available_promos": [
+                "New User Welcome Bonus",
+                "Odds Boosts",
+                "Profit Boosts",
+                "No-Sweat Bets"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

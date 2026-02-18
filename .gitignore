@@ -36,5 +36,6 @@ Thumbs.db
 # Logs
 logs/*.log
 
-# Reports (keep directory, ignore files for privacy)
-reports/*.json
+# Analysis folder (local temp)
+analysis/
+scripts/arb_opportunities_*.json
